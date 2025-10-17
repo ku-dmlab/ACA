@@ -41,5 +41,5 @@ We implemented our code based on [DACER](https://github.com/happy-yan/DACER-Diff
 ```
 
 ## Tips
-1. Search "other envs" in the code to find the parameters for Humanoid-v4 environments.
+1. Search "for humanoid-v4" in the code to find the parameters for Humanoid-v4 environments.
 2. The version of MuJoCo is mujoco210.
