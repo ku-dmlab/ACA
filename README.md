@@ -1,6 +1,6 @@
-# Actor-Critic without Actor (ACA)
+# Actor-Critic without Actor
 
-This is a official repository of "Actor-Critic without Actor".
+This is an official repository of **"Actor-Critic without Actor"**.
 
 <p align="center">
 <font size=5>📑</font>
