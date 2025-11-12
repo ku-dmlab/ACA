@@ -47,6 +47,7 @@ class ACADiffusion:
         return jnp.exp(0.5 * B.posterior_log_variance_clipped[t])
     
     def sample(self, key: jax.Array, model, shape: Tuple[int, ...]) -> jax.Array:
+        B = self.beta_schedule()
         x_key, noise_key = jax.random.split(key)
         x = jax.random.normal(x_key, shape)
         noise = jax.random.normal(noise_key, (self.num_timesteps, *shape))
@@ -60,7 +61,7 @@ class ACADiffusion:
             grad_x = jax.grad(grad_fn)(x)
             if self.q_grad_norm:
                 grad_x = grad_x / (jnp.linalg.norm(grad_x, axis=-1, keepdims=True) + 1e-8)
-            std = self.get_std(t)
+            std = B.sqrt_one_minus_alphas_cumprod[t]
             grad_x = -self.guidance_weight * std * grad_x
 
             model_mean, model_log_variance = self.p_mean_variance(t, x, grad_x)
