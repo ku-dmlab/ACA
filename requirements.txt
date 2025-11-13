@@ -8,6 +8,8 @@ imageio
 tensorboardX
 ipdb
 Cython<3.0.0
+flax
+wandb
 
 # Used by environment
 gymnasium==0.29.1
